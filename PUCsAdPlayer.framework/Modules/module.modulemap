@@ -1,0 +1,6 @@
+framework module PUCsAdPlayer {
+  umbrella header "PUCsAdPlayer.h"
+
+  export *
+  module * { export * }
+}

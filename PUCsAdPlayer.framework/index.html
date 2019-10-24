@@ -1,0 +1,118 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0px;
+      background-color: black;
+    }
+    #player {
+      width: 100%;
+      height: 100%;
+      background-color: black;
+    }
+    .veeplay-overlay-bottomleft {
+        margin-bottom: 0px;
+        margin-left: 5px;
+    }
+   .veeplay-overlay-bottomright {
+       margin-bottom: 5px;
+       margin-right: 5px;
+   }
+    .vjs-has-started .vjs-loading-spinner {
+        display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="player"></div>
+
+  <script src="mp.bundle.js"></script>
+  <script type="text/javascript">
+  class IconOverlayController extends OverlayController {
+      load() {
+          this.view.style.width = '48px';
+          this.view.style.height = '48px';
+          this.view.style.display = 'flex';
+          this.overlay.width = '48px';
+          this.overlay.height = '48px';
+          this.imageView = document.createElement('img');
+          this.imageView.src = player.getMute() ? '/unmute_icon.png' : '/mute_icon.png';
+          this.imageView.style.margin = 'auto';
+          this.view.appendChild(this.imageView);
+          
+          this.view.addEventListener('touchend', (e) => {
+             e.preventDefault();
+             e.stopImmediatePropagation();
+             this.imageView.src = player.getMute() ? '/mute_icon.png' : '/unmute_icon.png';
+             player.setMute(!player.getMute());
+         });
+      }
+  }
+      
+  const player = new MediaPlayer('player');
+  const builder = new MediaBuilder(player);
+  var vastURL;
+  
+  player.controllerRegistry.registerOverlayController(IconOverlayController, 'mute_btn');
+  player.getEventTracker().emitter.on('trackedEvent', (event) => trackEvent(event));
+      
+  function trackEvent(obj) {
+      try {
+          var msg = {};
+          if (obj.event === 'update') {
+              msg = {
+                  event: obj.event,
+                  currentPlaybackTime: obj.currentPlaybackTime,
+                  currentDuration: obj.currentDuration,
+                  source: obj.source.url
+              };
+          } else {
+              msg = {
+                  event: obj.event,
+                  source: obj.source.url
+              };
+          }
+          webkit.messageHandlers.controller.postMessage(msg);
+          
+          if (obj.event === 'start') {
+              const iconOverlay = new MediaOverlay();
+              iconOverlay.type = 'mute_btn';
+              iconOverlay.position = OVERLAY_POSITION.BOTTOM_RIGHT;
+              iconOverlay.startPoint = 0;
+              iconOverlay.endPoint = Number.MAX_SAFE_INTEGER;
+              player.addOverlays([iconOverlay]);
+          } else if (obj.event === 'complete') {
+              configureWithVASTURL(vastURL);
+          }
+      } catch(err) {
+          console.log('Native communication error', err);
+      }
+  }
+
+  async function configureWithVASTURL(url) {
+      vastURL = url;
+      
+      const ad = new VASTAdBreak(player);
+      ad.skipButtonConfiguration.defaultSkipOffset = -1;
+      ad.countDownConfiguration.show = true;
+      ad.countDownConfiguration.text = '__remaining__s';
+      ad.type = VAST_AD_BREAK_TYPE.PRE_CONTENT;
+      ad.sources = [vastURL];
+      builder.adsPlugin.adBreaks = [ad];
+      const units = await builder.mediaUnits();
+      
+      player.playMediaUnits(units);
+      player.play();
+  }
+  
+  function stop() {
+      player.stop();
+  }
+  </script>
+</body>
+
+</html>
