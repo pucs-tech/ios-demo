@@ -17,6 +17,8 @@
 
 @interface MarketPlaceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, AVPlayerViewControllerDelegate, MarketPlaceTableViewCellDelegate> {
     
+    IBOutlet UILabel *titleLable;
+    
 }
 
 

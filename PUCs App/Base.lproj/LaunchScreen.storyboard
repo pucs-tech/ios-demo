@@ -16,16 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pucs_logo-v2" translatesAutoresizingMaskIntoConstraints="NO" id="v7v-TO-kIq">
-                                <rect key="frame" x="67" y="260" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pucs_logo-v2" translatesAutoresizingMaskIntoConstraints="NO" id="v7v-TO-kIq">
+                                <rect key="frame" x="67.5" y="269.5" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="5sj-Br-1gU"/>
+                                    <constraint firstAttribute="width" constant="240" id="mvY-KA-RDx"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="v7v-TO-kIq" secondAttribute="bottom" constant="279" id="Gxv-cR-6hd"/>
-                            <constraint firstItem="v7v-TO-kIq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="cIN-ac-WsK"/>
-                            <constraint firstItem="v7v-TO-kIq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="io5-zT-uHe"/>
-                            <constraint firstItem="v7v-TO-kIq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="260" id="nmt-61-fnh"/>
+                            <constraint firstItem="v7v-TO-kIq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Nzl-eB-LvP"/>
+                            <constraint firstItem="v7v-TO-kIq" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="wEN-tH-Zed"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

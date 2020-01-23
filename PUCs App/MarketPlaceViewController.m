@@ -14,7 +14,7 @@ extern Globals *globalVars;
 
 @interface MarketPlaceViewController ()
 
-    @property (nonatomic, strong) PUCsAdView *pucsView;
+    @property (nonatomic, strong) PUCsAdView *pucsAddPlayer;
     @property (nonatomic, strong) NSTimer    *videoStatusTimer;
     @property (nonatomic)         BOOL       videoIsPlaying;
 
@@ -23,6 +23,7 @@ extern Globals *globalVars;
     @property (nonatomic, strong) VimeoVideo                             *selectedVideo;
     @property (strong, nonatomic) AVPlayerViewController                 *playerViewController;
 
+    @property (nonatomic, strong) NSString   *clientID;
 @end
 
 
@@ -36,11 +37,14 @@ extern Globals *globalVars;
     self.marketTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     globalVars.currentVideo = nil;
 
+    self.clientID = @"446778";
+    titleLable.text = @"XYZ Streaming Service";
+    
     self.playerViewController = [AVPlayerViewController new];
     self.playerViewController.delegate = self;
     
     self.videoIsPlaying = NO;
-    self.pucsView = [[PUCsAdView alloc] initWithFrame:self.view.frame];
+    self.pucsAddPlayer = [[PUCsAdView alloc] initWithFrame:self.view.frame];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -52,9 +56,22 @@ extern Globals *globalVars;
 
 -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     
-    [self.pucsView transitionAdViewToSize:size];
+    [self.pucsAddPlayer transitionAdViewToSize:size];
 }
 
+-(IBAction)changeAddServer:(id)sender {
+    
+    if ([self.clientID length] == 0)
+    {
+        self.clientID = @"446778";
+        titleLable.text = @"XYZ Streaming Service";
+    }
+    else
+    {
+        self.clientID = @"";
+        titleLable.text = @"ACME Streaming Service";
+    }
+}
 
 -(void)displaySelectedCollection {
     
@@ -133,15 +150,15 @@ extern Globals *globalVars;
     {
         if (self.playerViewController.player.timeControlStatus == AVPlayerTimeControlStatusPaused)
         {
-            NSLog(@"PucsDemp-Video paused ");
-            [self.pucsView playAdsForClient:@"136154" onAVPlayerViewController:self.playerViewController withFailureBlock:^(NSError * _Nonnull error) {
+            NSLog(@"PucsDemo-Video paused ");
+            [self.pucsAddPlayer playAdsForClient:self.clientID onAVPlayerViewController:self.playerViewController withFailureBlock:^(NSError * _Nonnull error) {
                 NSLog(@"pucsPlayAdsError: %@", error);
             }];
-            self.videoStatusTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(checkVideoStatus:) userInfo:nil repeats:YES];
+            self.videoStatusTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(checkVideoStatus:) userInfo:nil repeats:YES];
         }
         else
         {
-            [self.pucsView stopAds];
+            [self.pucsAddPlayer stopAds];
             [self.videoStatusTimer invalidate];
             self.videoStatusTimer = nil;
         }
@@ -156,7 +173,7 @@ extern Globals *globalVars;
         if (self.playerViewController.isBeingDismissed || self.playerViewController.nextResponder == nil)
         {
             self.videoIsPlaying = NO;
-            [self.pucsView stopAds];
+            [self.pucsAddPlayer stopAds];
             [self.videoStatusTimer invalidate];
             self.videoStatusTimer = nil;
         }
