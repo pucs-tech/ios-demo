@@ -95,7 +95,7 @@ sqlite3 *database;
 -(NSArray *)getVideosForCategory:(NSInteger)assetCategory {
     
     NSMutableArray *videos = [[NSMutableArray alloc] init];
-    NSString *sql = [NSString stringWithFormat:@"SELECT VimeoVideos.video_control_id, VimeoVideos.video_id, VimeoVideos.video_url, VimeoVideos.video_title, VimeoVideos.video_length, VimeoVideos.video_image, VimeoVideos.asset_category, VimeoVideos.asset_genre FROM VimeoVideos WHERE VimeoVideos.asset_category = %ld ORDER BY VimeoVideos.video_title ", assetCategory];
+    NSString *sql = [NSString stringWithFormat:@"SELECT VimeoVideos.video_control_id, VimeoVideos.video_id, VimeoVideos.video_url, VimeoVideos.video_title, VimeoVideos.video_length, VimeoVideos.video_image, VimeoVideos.asset_category, VimeoVideos.asset_genre FROM VimeoVideos WHERE VimeoVideos.asset_category = %ld ORDER BY VimeoVideos.video_title ", (long)assetCategory];
     
     sqlite3_stmt *statement;
     int sqlResult = sqlite3_prepare_v2(database, [sql UTF8String], -1, &statement, NULL);

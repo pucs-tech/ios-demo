@@ -68,6 +68,9 @@
 		57307F1C213C99E300CFBEA3 /* MyMovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyMovieTableViewCell.xib; sourceTree = "<group>"; };
 		57307F1D213C99E300CFBEA3 /* MyMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMovieTableViewCell.m; sourceTree = "<group>"; };
 		57307F1E213C99E300CFBEA3 /* MyMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMovieTableViewCell.h; sourceTree = "<group>"; };
+		573F8B89241833440013AF7B /* PUCsAdPlayer.build */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PUCsAdPlayer.build; path = ../PUCsAdPlayer/build/PUCsAdPlayer.build; sourceTree = "<group>"; };
+		573F8B8A241833F50013AF7B /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; name = build; path = ../PUCsAdPlayer/build; sourceTree = "<group>"; };
+		573F8B8B241834250013AF7B /* XCBuildData */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XCBuildData; path = ../PUCsAdPlayer/build/XCBuildData; sourceTree = "<group>"; };
 		577675F9231EFFD7008BC1EB /* MarketPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketPlaceViewController.m; sourceTree = "<group>"; };
 		577675FA231EFFD7008BC1EB /* MarketPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketPlaceViewController.h; sourceTree = "<group>"; };
 		577675FC231F0017008BC1EB /* MarketPlaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketPlaceTableViewCell.m; sourceTree = "<group>"; };
@@ -194,6 +197,9 @@
 		57307F08213C7CE800CFBEA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				573F8B8B241834250013AF7B /* XCBuildData */,
+				573F8B8A241833F50013AF7B /* build */,
+				573F8B89241833440013AF7B /* PUCsAdPlayer.build */,
 				57BC0D8222D0131F00E31B16 /* PUCsAdPlayer.framework */,
 				57B1F461222266EA0023C245 /* libsqlite3.0.tbd */,
 				57307F09213C7CE800CFBEA3 /* libsqlite3.tbd */,
@@ -391,7 +397,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: FADAN LLC (575URC7A6P)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -413,6 +419,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_CFLAGS[arch=*]" = "-fembed-bitcode";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -449,7 +456,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: FADAN LLC (575URC7A6P)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -464,6 +471,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				"OTHER_CFLAGS[arch=*]" = "-fembed-bitcode";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -487,7 +495,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fadanllc.PUCsDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.pucs.PUCsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -512,7 +520,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fadanllc.PUCsDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.pucs.PUCsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

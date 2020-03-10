@@ -31,10 +31,8 @@
     NSString *videoID = searchField.text;
     NSString *videoURL = [NSString stringWithFormat:@"%@%@", @"https://vimeo.com/", videoID];
     [[YTVimeoExtractor sharedExtractor]fetchVideoWithVimeoURL:videoURL withReferer:nil
-                                            completionHandler:^(YTVimeoVideo * _Nullable video, NSError * _Nullable error)
-     {
-         if (video)
-         {
+                        completionHandler:^(YTVimeoVideo * _Nullable video, NSError * _Nullable error) {
+         if (video) {
              VimeoVideo *vm = [[VimeoVideo alloc] init];
              vm.videoID = [videoID integerValue];
              vm.videoURL = videoURL;
@@ -47,8 +45,7 @@
              [self.assets addObject:vm];
              [self.assetTableView reloadData];
          }
-         else
-         {
+         else {
              NSString *errorTiltle = error.localizedDescription;
              NSString *errorMessage = error.localizedFailureReason;
              UIAlertController *alert;
@@ -70,7 +67,6 @@
 
          }
      }];
-
 }
 
 
@@ -164,13 +160,11 @@
     
     NSString *title;
     NSString *message;
-    if (result)
-    {
+    if (result) {
         title = @"SUCCESS";
         message = @"Video added successfully!";
     }
-    else
-    {
+    else {
         title = @"ERROR";
         message = @"There was an error to add asset %@.\nThe asset was NOT added.";
     }

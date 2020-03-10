@@ -43,7 +43,7 @@ extern Globals *globalVars;
     NSInteger videoLength = asset.videoLength;
     NSInteger minutes = videoLength / 60.0;
     NSInteger seconds = videoLength - (minutes * 60);
-    NSString *lengthStr = [NSString stringWithFormat:@"%ld:%ld", minutes, seconds];
+    NSString *lengthStr = [NSString stringWithFormat:@"%ld:%ld", (long)minutes, (long)seconds];
 
     
 //    NSString *genre;

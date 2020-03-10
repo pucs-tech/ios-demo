@@ -23,7 +23,7 @@
         NSInteger videoLength = vimeoVideo.videoLength;
         NSInteger minutes = videoLength / 60.0;
         NSInteger seconds = videoLength - (minutes * 60);
-        _lengthLabel.text = [NSString stringWithFormat:@"%ld:%ld minutes", minutes, seconds];
+        _lengthLabel.text = [NSString stringWithFormat:@"%ld:%ld minutes", (long)minutes, (long)seconds];
         _videoImage.image = vimeoVideo.videoImage;
     }
 }

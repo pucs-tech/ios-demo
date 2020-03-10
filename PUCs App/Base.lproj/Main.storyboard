@@ -211,7 +211,8 @@
                         <viewLayoutGuide key="safeArea" id="m5Q-aq-Gha"/>
                     </view>
                     <navigationItem key="navigationItem" title="PUCs Demo" id="idI-Xm-5Jk">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="cloud" catalog="system" id="ZS8-MB-2Ah">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="cloud" id="ZS8-MB-2Ah">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="changeAddServer:" destination="DqD-a5-qsw" id="BAM-z3-tKT"/>
                             </connections>
@@ -339,7 +340,7 @@
     </scenes>
     <resources>
         <image name="back-button" width="8" height="14"/>
-        <image name="cloud" catalog="system" width="64" height="42"/>
+        <image name="cloud" width="64" height="64"/>
         <image name="pucs_logo-v2" width="1373" height="983"/>
         <image name="settings-large" width="22" height="22"/>
     </resources>

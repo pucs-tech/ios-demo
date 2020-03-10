@@ -91,10 +91,8 @@ extern Globals *globalVars;
 -(void)playVideo:(VimeoVideo *)vimeoVideo {
   
     NSString *videoURLstring = vimeoVideo.videoURL;
-    [[YTVimeoExtractor sharedExtractor] fetchVideoWithVimeoURL:videoURLstring withReferer:nil completionHandler:^(YTVimeoVideo * _Nullable video, NSError * _Nullable error)
-    {
-        if (video)
-        {
+    [[YTVimeoExtractor sharedExtractor] fetchVideoWithVimeoURL:videoURLstring withReferer:nil completionHandler:^(YTVimeoVideo * _Nullable video, NSError * _Nullable error) {
+        if (video) {
             /*
             NSURL *videoURL = [video highestQualityStreamURL];
             [self.playerViewController playVimeoVideo:videoURL];
@@ -110,8 +108,7 @@ extern Globals *globalVars;
             self.videoIsPlaying = YES;
             
         }
-        else
-        {
+        else {
             UIAlertController *alert;
             UIAlertAction *okAction;
             alert =   [UIAlertController
@@ -134,18 +131,15 @@ extern Globals *globalVars;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
-    if ([keyPath isEqualToString:@"rate"] && !self.playerViewController.isBeingDismissed)
-    {
-        if (self.playerViewController.player.timeControlStatus == AVPlayerTimeControlStatusPaused)
-        {
+    if ([keyPath isEqualToString:@"rate"] && !self.playerViewController.isBeingDismissed) {
+        if (self.playerViewController.player.timeControlStatus == AVPlayerTimeControlStatusPaused) {
             NSLog(@"PUCsDemo-Video Paused");
             [self.pucsView playAdsForClient:@"136154" onAVPlayerViewController:self.playerViewController withFailureBlock:^(NSError * _Nonnull error) {
                 NSLog(@"pucsPlayAdsError: %@", error);
             }];
             self.videoStatusTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(checkVideoStatus:) userInfo:nil repeats:YES];
         }
-        else
-        {
+        else {
             [self.pucsView stopAds];
             [self.videoStatusTimer invalidate];
             self.videoStatusTimer = nil;
@@ -156,10 +150,8 @@ extern Globals *globalVars;
 -(IBAction)checkVideoStatus:(id)sender {
 
 //    NSLog(@"Timer firing");
-    if (self.videoIsPlaying)
-    {
-        if (self.playerViewController.isBeingDismissed || self.playerViewController.nextResponder == nil)
-        {
+    if (self.videoIsPlaying) {
+        if (self.playerViewController.isBeingDismissed || self.playerViewController.nextResponder == nil) {
             self.videoIsPlaying = NO;
             [self.pucsView stopAds];
             [self.videoStatusTimer invalidate];

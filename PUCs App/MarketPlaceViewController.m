@@ -61,13 +61,11 @@ extern Globals *globalVars;
 
 -(IBAction)changeAddServer:(id)sender {
     
-    if ([self.clientID length] == 0)
-    {
+    if ([self.clientID length] == 0) {
         self.clientID = @"446778";
         titleLable.text = @"XYZ Streaming Service";
     }
-    else
-    {
+    else {
         self.clientID = @"";
         titleLable.text = @"ACME Streaming Service";
     }
@@ -109,10 +107,8 @@ extern Globals *globalVars;
 -(void)playVideo:(VimeoVideo *)vimeoVideo {
     
     NSString *videoURLstring = vimeoVideo.videoURL;
-    [[YTVimeoExtractor sharedExtractor] fetchVideoWithVimeoURL:videoURLstring withReferer:nil completionHandler:^(YTVimeoVideo * _Nullable video, NSError * _Nullable error)
-     {
-         if (video)
-         {
+    [[YTVimeoExtractor sharedExtractor] fetchVideoWithVimeoURL:videoURLstring withReferer:nil completionHandler:^(YTVimeoVideo * _Nullable video, NSError * _Nullable error) {
+         if (video) {
              NSURL *highQualityURL = [video highestQualityStreamURL];
              AVPlayer *avPlayer = [AVPlayer playerWithURL:highQualityURL];
              [avPlayer addObserver:self forKeyPath:@"rate" options:0 context:0];
@@ -122,8 +118,7 @@ extern Globals *globalVars;
              self.videoIsPlaying = YES;
              
          }
-        else
-        {
+        else {
             UIAlertController *alert;
             UIAlertAction *okAction;
             alert =   [UIAlertController
@@ -146,18 +141,15 @@ extern Globals *globalVars;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     
-    if ([keyPath isEqualToString:@"rate"] && !self.playerViewController.isBeingDismissed)
-    {
-        if (self.playerViewController.player.timeControlStatus == AVPlayerTimeControlStatusPaused)
-        {
+    if ([keyPath isEqualToString:@"rate"] && !self.playerViewController.isBeingDismissed) {
+        if (self.playerViewController.player.timeControlStatus == AVPlayerTimeControlStatusPaused) {
             NSLog(@"PucsDemo-Video paused ");
             [self.pucsAddPlayer playAdsForClient:self.clientID onAVPlayerViewController:self.playerViewController withFailureBlock:^(NSError * _Nonnull error) {
                 NSLog(@"pucsPlayAdsError: %@", error);
             }];
             self.videoStatusTimer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(checkVideoStatus:) userInfo:nil repeats:YES];
         }
-        else
-        {
+        else {
             [self.pucsAddPlayer stopAds];
             [self.videoStatusTimer invalidate];
             self.videoStatusTimer = nil;
@@ -168,10 +160,8 @@ extern Globals *globalVars;
 -(IBAction)checkVideoStatus:(id)sender {
     
     //    NSLog(@"Timer firing");
-    if (self.videoIsPlaying)
-    {
-        if (self.playerViewController.isBeingDismissed || self.playerViewController.nextResponder == nil)
-        {
+    if (self.videoIsPlaying) {
+        if (self.playerViewController.isBeingDismissed || self.playerViewController.nextResponder == nil) {
             self.videoIsPlaying = NO;
             [self.pucsAddPlayer stopAds];
             [self.videoStatusTimer invalidate];
