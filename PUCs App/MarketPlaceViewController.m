@@ -60,15 +60,36 @@ extern Globals *globalVars;
 }
 
 -(IBAction)changeAddServer:(id)sender {
-    
+
+    NSString *adServer;
     if ([self.clientID length] == 0) {
         self.clientID = @"446778";
         titleLable.text = @"XYZ Streaming Service";
+        adServer = @"SpringServe";
     }
     else {
         self.clientID = @"";
         titleLable.text = @"ACME Streaming Service";
+        adServer = @"PilotX";
     }
+    
+    adServer = [NSString stringWithFormat:@"Ad Server changed to %@ successfully.", adServer];
+    
+    UIAlertController *alert;
+    UIAlertAction *okAction;
+    alert =   [UIAlertController
+               alertControllerWithTitle:@"Confirmation"
+               message:adServer
+               preferredStyle:UIAlertControllerStyleAlert];
+    
+    okAction  = [UIAlertAction
+                 actionWithTitle:@"OK"
+                 style:UIAlertActionStyleDefault
+                 handler:^(UIAlertAction *action)
+                 {
+                 }];
+    [alert addAction:okAction];
+    [self.navigationController presentViewController:alert animated:NO completion:nil];
 }
 
 -(void)displaySelectedCollection {

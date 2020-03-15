@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570EE340241997E7006A3711 /* PUCsAdPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BC0D8922D0168200E31B16 /* PUCsAdPlayer.framework */; };
+		570EE341241997E7006A3711 /* PUCsAdPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57BC0D8922D0168200E31B16 /* PUCsAdPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5710DCFD234C06E2001BAC57 /* PUCs.db in Resources */ = {isa = PBXBuildFile; fileRef = 5710DCFC234C06E2001BAC57 /* PUCs.db */; };
 		57307ECE213C7C3600CFBEA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57307ECD213C7C3600CFBEA3 /* AppDelegate.m */; };
 		57307ED4213C7C3600CFBEA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57307ED2213C7C3600CFBEA3 /* Main.storyboard */; };
@@ -17,7 +19,6 @@
 		57307F1A213C935D00CFBEA3 /* HomeViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57307F19213C935D00CFBEA3 /* HomeViewViewController.m */; };
 		57307F1F213C99E300CFBEA3 /* MyMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57307F1C213C99E300CFBEA3 /* MyMovieTableViewCell.xib */; };
 		57307F20213C99E300CFBEA3 /* MyMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57307F1D213C99E300CFBEA3 /* MyMovieTableViewCell.m */; };
-		575238D022D01AF300AB8753 /* PUCsAdPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57BC0D8922D0168200E31B16 /* PUCsAdPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		577675FB231EFFD7008BC1EB /* MarketPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 577675F9231EFFD7008BC1EB /* MarketPlaceViewController.m */; };
 		57767601231F0017008BC1EB /* MarketPlaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 577675FC231F0017008BC1EB /* MarketPlaceTableViewCell.m */; };
 		57767602231F0017008BC1EB /* MarketPlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 577675FE231F0017008BC1EB /* MarketPlaceTableViewCell.xib */; };
@@ -30,19 +31,18 @@
 		57B56E60219122DA00CD23B1 /* YTVimeoExtractorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B56E58219122DA00CD23B1 /* YTVimeoExtractorOperation.m */; };
 		57B56E61219122DA00CD23B1 /* YTVimeoURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B56E59219122DA00CD23B1 /* YTVimeoURLParser.m */; };
 		57B56E62219122DA00CD23B1 /* YTVimeoVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57B56E5A219122DA00CD23B1 /* YTVimeoVideo.m */; };
-		57BC0D8A22D0168200E31B16 /* PUCsAdPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BC0D8922D0168200E31B16 /* PUCsAdPlayer.framework */; };
 		57F839892192687200C48801 /* VimeoVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F839882192687200C48801 /* VimeoVideo.m */; };
 		57F8398F219270AA00C48801 /* AddVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F8398E219270AA00C48801 /* AddVideoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		57B1F48D222306680023C245 /* Embed Frameworks */ = {
+		570EE342241997E7006A3711 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				575238D022D01AF300AB8753 /* PUCsAdPlayer.framework in Embed Frameworks */,
+				570EE341241997E7006A3711 /* PUCsAdPlayer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57BC0D8A22D0168200E31B16 /* PUCsAdPlayer.framework in Frameworks */,
+				570EE340241997E7006A3711 /* PUCsAdPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +258,7 @@
 				57307EC5213C7C3600CFBEA3 /* Sources */,
 				57307EC6213C7C3600CFBEA3 /* Frameworks */,
 				57307EC7213C7C3600CFBEA3 /* Resources */,
-				57B1F48D222306680023C245 /* Embed Frameworks */,
+				570EE342241997E7006A3711 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -483,7 +483,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 325;
+				CURRENT_PROJECT_VERSION = 365;
 				DEVELOPMENT_TEAM = 575URC7A6P;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -508,7 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 325;
+				CURRENT_PROJECT_VERSION = 365;
 				DEVELOPMENT_TEAM = 575URC7A6P;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
