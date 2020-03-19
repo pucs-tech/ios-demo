@@ -4,7 +4,7 @@ PUCs AdPlayer is a powerful yet simple-to-use framework to show ads over a AVPla
 
 ## Demo Usage
 
-Download the code and open PUCs Demo.xcodeproj in XCode. All the demo app functionality is in MarketPlaceViewController. 
+Download the code and open PUCs Demo.xcodeproj in Xcode. All the demo app functionality is in MarketPlaceViewController. 
 
 # Using PUCs Framework in Another App
 
