@@ -8,6 +8,7 @@
 
 #import "MarketPlaceViewController.h"
 #import "YTVimeoExtractor.h"
+#import <PUCsAdPlayer/PUCsAdPlayer.h>
 
 
 extern Globals *globalVars;

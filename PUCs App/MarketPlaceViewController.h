@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <AVKit/AVKit.h>
-#import <PUCsAdPlayer/PUCsAdPlayer.h>
 #import "constants.h"
 #import "DBAccess.h"
 #import "Globals.h"
