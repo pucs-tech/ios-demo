@@ -1,6 +1,6 @@
 # PUCs iOS Ad Player Demo & Framework
 
-This repo contains the iOS demo app and framework.
+PUCs AdPlayer is a powerful yet simple-to-use framework to show ads over a AVPlayerViewController when paused. This repo contains the iOS demo app and the framework.
 
 ## Demo Usage
 
